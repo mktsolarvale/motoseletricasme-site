@@ -1,0 +1,262 @@
+<meta charset="utf-8">
+<title>ME Motos Elétricas</title>
+<meta name="description" content="Seu novo jeito de acelerar. Motos 100% elétricas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap">
+
+<style>
+  :root{
+    color-scheme: dark;
+    /* ---- paleta oficial ME Motos Elétricas ---- */
+    --authority:   #151C24;   /* Authority Blue - fundo */
+    --authority-2: #0E141A;
+    --surface:     #1C2530;
+    --surface-hi:  #23303C;
+    --energy:      #00C8C8;    /* Energy Blue - turquesa */
+    --energy-br:   #2BE4E4;
+    --white:       #EAEAEA;
+    --tech-gray:   #93A1A9;    /* Tech Gray clareado p/ leitura no escuro */
+    --line:        rgba(0,200,200,.18);
+    --line-soft:   rgba(234,234,234,.08);
+    --shadow:      0 18px 40px -22px rgba(0,0,0,.9);
+    --max:         440px;
+  }
+
+  *{ box-sizing:border-box; }
+
+  body{
+    margin:0;
+    min-height:100vh;
+    background:
+      radial-gradient(1100px 640px at 50% -8%, rgba(0,200,200,.18), transparent 60%),
+      radial-gradient(760px 520px at 50% 108%, rgba(0,200,200,.08), transparent 62%),
+      var(--authority);
+    color:var(--white);
+    font-family:"Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    -webkit-font-smoothing:antialiased;
+    display:flex; justify-content:center;
+    padding:26px 20px 40px;
+    position:relative; overflow-x:hidden;
+  }
+  /* padrão geométrico sutil (referência ao manual) */
+  body::before{
+    content:""; position:fixed; inset:0; z-index:-1; pointer-events:none; opacity:.5;
+    background:
+      radial-gradient(circle at 100% 0, rgba(0,200,200,.10) 0 22%, transparent 22.4%),
+      radial-gradient(circle at 0 100%, rgba(0,200,200,.06) 0 26%, transparent 26.4%);
+  }
+
+  .page{ width:100%; max-width:var(--max); }
+
+  /* ---------- top bar ---------- */
+  .topbar{ display:flex; align-items:center; justify-content:space-between; margin-bottom:34px; }
+  .topbar .brandmini{
+    display:flex; align-items:center; gap:9px;
+    font-family:"Poppins",sans-serif; font-weight:700; font-size:13.5px;
+    letter-spacing:.02em; color:var(--white);
+  }
+  .topbar .brandmini img{ width:28px; height:28px; display:block; object-fit:contain; }
+  .share-btn{
+    width:40px; height:40px; border-radius:12px; display:grid; place-items:center;
+    background:var(--surface); border:1px solid var(--line-soft);
+    color:var(--white); cursor:pointer; transition:.18s ease;
+  }
+  .share-btn:hover{ background:var(--surface-hi); border-color:var(--line); transform:translateY(-1px); }
+  .share-btn svg{ width:18px; height:18px; }
+
+  /* ---------- hero ---------- */
+  .hero{ text-align:center; margin-bottom:26px; }
+  .avatar-wrap{ position:relative; width:132px; height:132px; margin:0 auto 20px; display:grid; place-items:center; }
+  .avatar-wrap::before{
+    content:""; position:absolute; inset:0; border-radius:50%;
+    border:2px solid var(--energy); animation:pulse 3.4s ease-out infinite;
+  }
+  .avatar-wrap::after{
+    content:""; position:absolute; inset:-16%; border-radius:50%;
+    background:radial-gradient(circle, rgba(0,200,200,.40), transparent 68%);
+    filter:blur(6px); z-index:-1;
+  }
+  .avatar-wrap img{ width:118px; height:118px; display:block; object-fit:contain; }
+  @keyframes pulse{
+    0%{ transform:scale(1); opacity:.6; }
+    70%{ transform:scale(1.3); opacity:0; }
+    100%{ transform:scale(1.3); opacity:0; }
+  }
+
+  .brand-name{
+    font-family:"Poppins",sans-serif; font-weight:800; font-size:27px;
+    letter-spacing:-.01em; margin:0 0 8px; text-wrap:balance;
+  }
+  .brand-name b{ color:var(--energy); font-weight:800; }
+  .tagline{ margin:0 auto; max-width:30ch; color:var(--tech-gray); font-size:14.5px; line-height:1.5; }
+
+  /* selos oficiais da marca */
+  .badges{ display:flex; justify-content:center; gap:8px; margin-top:18px; flex-wrap:wrap; }
+  .badges .b{
+    display:inline-flex; align-items:center; gap:7px;
+    padding:7px 13px 7px 9px; border-radius:999px;
+    background:rgba(0,200,200,.09); border:1px solid var(--line);
+    font-family:"Poppins",sans-serif; font-weight:600; font-size:11.5px;
+    letter-spacing:.01em; color:var(--energy-br);
+  }
+  .badges .b svg{ width:17px; height:17px; }
+
+  /* ---------- links ---------- */
+  .links{ display:flex; flex-direction:column; gap:13px; margin:28px 0; }
+  .link{
+    display:flex; align-items:center; gap:15px;
+    padding:15px 17px; border-radius:16px;
+    background:var(--surface); border:1px solid var(--line-soft);
+    color:var(--white); text-decoration:none; box-shadow:var(--shadow);
+    transition:transform .16s ease, background .16s ease, border-color .16s ease;
+  }
+  .link:hover{ transform:translateY(-2px); background:var(--surface-hi); border-color:var(--line); }
+  .link:focus-visible{ outline:2px solid var(--energy-br); outline-offset:3px; }
+  .link .badge{
+    flex:0 0 auto; width:44px; height:44px; border-radius:12px; display:grid; place-items:center;
+    background:rgba(0,200,200,.12); color:var(--energy-br);
+  }
+  .link .badge svg{ width:22px; height:22px; }
+  .link .txt{ flex:1 1 auto; min-width:0; }
+  .link .txt .t{ display:block; font-family:"Poppins",sans-serif; font-weight:600; font-size:15px; line-height:1.2; }
+  .link .txt .s{ display:block; font-size:12.5px; color:var(--tech-gray); margin-top:3px; line-height:1.3; }
+  .link .chev{ flex:0 0 auto; color:var(--tech-gray); transition:transform .16s ease, color .16s ease; }
+  .link:hover .chev{ transform:translateX(3px); color:var(--energy-br); }
+  .link .chev svg{ width:18px; height:18px; display:block; }
+
+  .link.primary{
+    background:linear-gradient(135deg, var(--energy) 0%, var(--energy-br) 100%);
+    border-color:transparent; color:var(--authority);
+    box-shadow:0 16px 34px -16px rgba(0,200,200,.8);
+  }
+  .link.primary:hover{ background:linear-gradient(135deg, #06D6D6 0%, #45ECEC 100%); }
+  .link.primary .badge{ background:rgba(21,28,36,.16); color:var(--authority); }
+  .link.primary .txt .t{ font-weight:700; }
+  .link.primary .txt .s{ color:rgba(21,28,36,.7); }
+  .link.primary .chev{ color:rgba(21,28,36,.62); }
+  .link.primary:hover .chev{ color:var(--authority); }
+
+  /* ---------- socials ---------- */
+  .socials{ display:flex; justify-content:center; gap:12px; margin-bottom:34px; }
+  .socials a{
+    width:46px; height:46px; border-radius:13px; display:grid; place-items:center;
+    background:var(--surface); border:1px solid var(--line-soft); color:var(--white); transition:.18s ease;
+  }
+  .socials a:hover{ background:var(--energy); border-color:transparent; color:var(--authority); transform:translateY(-2px); }
+  .socials a:focus-visible{ outline:2px solid var(--energy-br); outline-offset:3px; }
+  .socials svg{ width:21px; height:21px; }
+
+  /* ---------- footer ---------- */
+  .foot{ text-align:center; }
+  .foot .wm{
+    display:inline-flex; align-items:center; gap:9px;
+    font-family:"Poppins",sans-serif; font-weight:700; font-size:13px; color:var(--white); opacity:.72;
+  }
+  .foot .wm img{ width:24px; height:24px; object-fit:contain; }
+  .foot .rights{ margin-top:9px; font-size:11.5px; color:var(--tech-gray); }
+
+  @media (prefers-reduced-motion: reduce){
+    .avatar-wrap::before{ animation:none; }
+    *{ transition:none !important; }
+  }
+</style>
+
+<div class="page">
+
+  <div class="topbar">
+    <span class="brandmini">
+      <img id="logo-mini" alt="" />
+      me · motos elétricas
+    </span>
+    <button class="share-btn" id="shareBtn" aria-label="Compartilhar esta página">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="10.7" x2="15.4" y2="6.3"/><line x1="8.6" y1="13.3" x2="15.4" y2="17.7"/></svg>
+    </button>
+  </div>
+
+  <header class="hero">
+    <div class="avatar-wrap">
+      <img id="logo-hero" alt="ME Motos Elétricas" />
+    </div>
+    <h1 class="brand-name">ME <b>Motos Elétricas</b></h1>
+    <p class="tagline">Seu novo jeito de acelerar. Mobilidade inteligente, um futuro melhor.</p>
+
+    <div class="badges">
+      <span class="b">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9.2"/><path d="M13 6.5 L8.5 12.8 h3 L11 17.5 L15.5 11 h-3 z" fill="currentColor" stroke="none"/></svg>
+        100% Elétrico
+      </span>
+      <span class="b">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"/><path d="M12 17v-4"/><path d="M12 13l-3-2.5"/><path d="M12 13l3-2.5"/><circle cx="12" cy="7.4" r="1.1" fill="currentColor" stroke="none"/><circle cx="8.4" cy="9.4" r="1.1" fill="currentColor" stroke="none"/><circle cx="15.6" cy="9.4" r="1.1" fill="currentColor" stroke="none"/></svg>
+        Tecnológico
+      </span>
+      <span class="b">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"/><path d="M8 15.5c0-4 2.8-6.8 8-7-0.2 5.2-3 8-7 8"/><path d="M9 16.5c1.2-2 2.7-3.4 4.8-4.4"/></svg>
+        Sustentável
+      </span>
+    </div>
+  </header>
+
+  <nav class="links" aria-label="Links principais">
+
+    <a class="link primary" href="https://wa.me/5547992929570" target="_blank" rel="noopener" data-link="whatsapp">
+      <span class="badge">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.02c-.24.68-1.42 1.32-1.95 1.37-.5.05-.95.24-3.2-.66-2.7-1.06-4.4-3.8-4.53-3.98-.13-.18-1.08-1.43-1.08-2.73s.68-1.94.92-2.2c.24-.27.53-.33.7-.33.18 0 .35 0 .5.01.16.01.38-.06.6.46.24.55.8 1.9.87 2.04.07.13.12.29.02.47-.09.18-.14.29-.27.45-.14.16-.29.36-.41.48-.14.13-.28.28-.12.55.16.27.71 1.17 1.53 1.9 1.05.93 1.94 1.22 2.21 1.36.27.14.43.12.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.22.6-.13.24.09 1.55.73 1.82.86.27.13.45.2.51.31.07.11.07.63-.17 1.31z"/></svg>
+      </span>
+      <span class="txt"><span class="t">Falar no WhatsApp</span><span class="s">Tire dúvidas e faça seu orçamento</span></span>
+      <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+    </a>
+
+    <a class="link" href="https://www.motoseletricasme.com.br/" target="_blank" rel="noopener" data-link="modelos">
+      <span class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="16" r="3.2"/><circle cx="18.5" cy="16" r="3.2"/><path d="M5.5 16h6l3-6h3"/><path d="M12 10l2.2 4"/><path d="M15 7h3l1 3"/></svg>
+      </span>
+      <span class="txt"><span class="t">Conheça os modelos</span><span class="s">Toda a linha de motos elétricas ME</span></span>
+      <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+    </a>
+
+    <a class="link" href="https://wa.me/5547992929570" target="_blank" rel="noopener" data-link="financiamento">
+      <span class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="10" y2="11"/><line x1="13" y1="11" x2="16" y2="11"/><line x1="8" y1="15" x2="10" y2="15"/><line x1="13" y1="15" x2="16" y2="15"/></svg>
+      </span>
+      <span class="txt"><span class="t">Simule seu financiamento</span><span class="s">Parcelas que cabem no seu bolso</span></span>
+      <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+    </a>
+
+    <a class="link" href="https://share.google/KUbpo4r0OS2MdBr4i" target="_blank" rel="noopener" data-link="loja-blumenau">
+      <span class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+      </span>
+      <span class="txt"><span class="t">Loja em Blumenau</span><span class="s">Ver no mapa e como chegar</span></span>
+      <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+    </a>
+
+    <a class="link" href="https://share.google/ZN106UbI7fQ4wjTDF" target="_blank" rel="noopener" data-link="loja-presidente-getulio">
+      <span class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+      </span>
+      <span class="txt"><span class="t">Loja em Presidente Getúlio</span><span class="s">Ver no mapa e como chegar</span></span>
+      <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+    </a>
+
+  </nav>
+
+  <footer class="foot">
+    <span class="wm"><img id="logo-foot" alt="" /> ME Motos Elétricas</span>
+    <div class="rights">© <span id="yr"></span> ME Motos Elétricas — Todos os direitos reservados</div>
+  </footer>
+
+</div>
+
+<script>
+  var LOGO = "data:image/png;base64,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";
+  ["logo-mini","logo-hero","logo-foot"].forEach(function(id){
+    var el = document.getElementById(id); if(el) el.src = LOGO;
+  });
+  document.getElementById("yr").textContent = new Date().getFullYear();
+  document.getElementById("shareBtn").addEventListener("click", function(){
+    var data = { title:"ME Motos Elétricas", text:"Seu novo jeito de acelerar ⚡", url:location.href };
+    if(navigator.share){ navigator.share(data).catch(function(){}); }
+    else if(navigator.clipboard){ navigator.clipboard.writeText(location.href); this.setAttribute("aria-label","Link copiado!"); }
+  });
+</script>
