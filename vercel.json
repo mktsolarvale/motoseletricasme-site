@@ -1,6 +1,1 @@
-{
-  "buildCommand": "echo no-build",
-  "outputDirectory": ".",
-  "cleanUrls": true,
-  "trailingSlash": false
-}
+{ "buildCommand": "echo no-build", "outputDirectory": ".", "cleanUrls": true, "trailingSlash": false, "rewrites": [{ "source": "/whatsapp/:path*", "destination": "/whatsapp/index.html" }] }
